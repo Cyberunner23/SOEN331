@@ -17,7 +17,7 @@
 \title{SOEN 331-U: Introduction to Formal Methods\\for Software Engineering\\
 Assignment 1 on Object-Z specification}
 \author{\begin{tabular}{c}
-Alec Adub (400xxxxx) \tabularnewline
+Alec Adub (40032876) \tabularnewline
 Alex Frappier Lachapelle (40019133) \tabularnewline
 Robert Nittolo (40032587) \tabularnewline
 Pierre-Olivier Trottier (40059235) \tabularnewline\\
@@ -32,9 +32,51 @@ Pierre-Olivier Trottier (40059235) \tabularnewline\\
 
 \newpage
 
-\section{Employee management}
+\section{Parking Management}
 
-\begin{class}{EmployeeSalaries}
+\begin{class}{ParkingManagement}
+\also
+\upharpoonright (AddEmployee, DeleteEmployee, ModifySalary) \\
+\begin{state}
+employeeSalary : Employee \pfun \mathbb{R}\\
+\where
+\forall d : dom~employeeSalary \bullet employeeSalary(d) > 0.0
+\end{state} \\
+\begin{init}
+employeeSalary = \emptyset %\{ \}
+\end{init} \\
+\begin{op}{AddEmployee}
+\Delta (employeeSalary) \\
+newEmployee? : Employee\\
+salary? : \mathbb{R}
+\ST
+salary? > 0.0 \\
+newEmployee? \notin dom~employeeSalary\\
+employeeSalary' = employeeSalary \cup \{ newEmployee \mapsto salary? \}
+\end{op}\\
+\begin{op}{DeleteEmployee}
+\Delta (employeeSalary) \\
+who? : Employee\\
+\ST
+who? \in dom~employeeSalary\\
+employeeSalary' = \{ who \} \ndres employeeSalary
+\end{op}\\
+\begin{op}{ModifySalary}
+\Delta (employeeSalary) \\
+employee? : Employee\\
+newSalary? : \mathbb{R}
+\ST
+newSalary? > 0.0 \\
+employee? \in dom~employeeSalary\\
+employeeSalary' = employeeSalary \oplus \{ employee? \mapsto newSalary? \}
+\end{op}\\
+\end{class}
+
+\newpage
+
+\section{Parking Management 2}
+
+\begin{class}{ParkingManagement2}
 \also
 \upharpoonright (AddEmployee, DeleteEmployee, ModifySalary) \\
 \begin{state}
