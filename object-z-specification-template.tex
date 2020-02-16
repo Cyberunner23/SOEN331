@@ -46,12 +46,12 @@ vehicles = \emptyset %\{ \}
 \end{init} \\
 \begin{op}{AllocateVehicleOK}
 \Delta (vehicle) \\
-newLicensePlate? : LicencePlate\\
+newCar? : LicencePlate\\
 parkingSpot? : ParkingSpot\\
 \ST
-newLicensePlate? \notin dom~vehicles\\
+newCar? \notin dom~vehicles\\
 parkingSpot? \notin ran~vehicles\\
-vehicles' = vehicles \union \{ newLicensePlate? \rightarrowtail parkingSpot? \}
+vehicles' = vehicles \union \{ newCar? \rightarrowtail parkingSpot? \}
 \end{op}\\
 \begin{op}{DeallocateVehicleOK}
 \Delta (vehicle) \\
@@ -60,24 +60,39 @@ carToRemove? : LicencePlate\\
 carToRemove? \in dom~vehicles\\
 vehicles' = \{ carToRemove? \} \ndres vehicles
 \end{op}\\
+\begin{op}{FindVehicleOK}
+carToFind? : LicencePlate\\
+spot!: ParkingSpot\\
+\ST
+carToFind? \in dom~vehicles\\
+spot! = vehicles \{ carToFind? \}
+\end{op}\\
+...\\
+\end{class}
+
+\newpage
+
+\begin{class}{ParkingManagement}
+...\\
 \begin{op}{ErrorAlreadyAssigned}
-newLicensePlate? : LicencePlate\\
+licensePlate? : LicencePlate\\
 parkingSpot? : ParkingSpot\\
 alert! : Message\\
 \ST
-newLicensePlate? \in dom~vehicles\\
+licensePlate? \in dom~vehicles\\
 parkingSpot? \in ran~vehicles\\
-alert! = \ 'ErrorAlreadyAssigned'
+alert! = \ 'Error:\ License\ plate\ or\ parking\ spot\ was\ already\ assigned'
 \end{op}\\
 \begin{op}{ErrorNotFound}
-carToRemove? : LicencePlate\\
+carToFind? : LicencePlate\\
 alert! : Message\\
 \ST
-carToRemove? \notin dom~vehicles\\
-alert! = \ 'ErrorNotFound'
+carToFind? \notin dom~vehicles\\
+alert! = \ 'Error:\ License\ plate\ was\ not\ found'
 \end{op}\\
-AllocateVehicle  \ \mathrel{\widehat{=}} \ (AllocateVehicleOK \wedge SuccessAllocated) \vee ErrorAlreadyAssigned \\
-DeallocateVehicle  \ \mathrel{\widehat{=}} \ (DeallocateVehicleOK \wedge SuccessDeallocated) \vee ErrorNotFound \\
+AllocateVehicle  \ \mathrel{\widehat{=}} \ AllocateVehicleOK \vee ErrorAlreadyAssigned \\
+DeallocateVehicle  \ \mathrel{\widehat{=}} \ DeallocateVehicleOK \vee ErrorNotFound \\
+FindVehicle  \ \mathrel{\widehat{=}} \ FindVehicleOK \vee ErrorNotFound \\
 \end{class}
 
 \newpage
