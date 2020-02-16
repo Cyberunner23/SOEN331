@@ -36,14 +36,13 @@ Pierre-Olivier Trottier (40059235) \tabularnewline\\
 
 \begin{class}{ParkingManagement}
 \also
-\upharpoonright (AddEmployee, DeleteEmployee, ModifySalary) \\
+\upharpoonright (AllocateVehicleOK, DeallocateVehicleOK, FindVehicleOK) \\
 \begin{state}
-employeeSalary : Employee \pfun \mathbb{R}\\
+Vehicle : LicencePlate  \rightarrowtail ParkingSpot\\
 \where
-\forall d : dom~employeeSalary \bullet employeeSalary(d) > 0.0
 \end{state} \\
 \begin{init}
-employeeSalary = \emptyset %\{ \}
+Vehicle = \emptyset %\{ \}
 \end{init} \\
 \begin{op}{AddEmployee}
 \Delta (employeeSalary) \\
@@ -54,12 +53,12 @@ salary? > 0.0 \\
 newEmployee? \notin dom~employeeSalary\\
 employeeSalary' = employeeSalary \cup \{ newEmployee \mapsto salary? \}
 \end{op}\\
-\begin{op}{DeleteEmployee}
-\Delta (employeeSalary) \\
-who? : Employee\\
+\begin{op}{DeallocateVehicleOK}
+\Delta (Vehicle) \\
+carToRemove? : LicencePlate\\
 \ST
-who? \in dom~employeeSalary\\
-employeeSalary' = \{ who \} \ndres employeeSalary
+carToRemove? \in dom~Vehicle\\
+Vehicle' = \{ carToRemove? \} \ndres Vehicle
 \end{op}\\
 \begin{op}{ModifySalary}
 \Delta (employeeSalary) \\
@@ -70,6 +69,14 @@ newSalary? > 0.0 \\
 employee? \in dom~employeeSalary\\
 employeeSalary' = employeeSalary \oplus \{ employee? \mapsto newSalary? \}
 \end{op}\\
+\begin{op}{LicensePlateNotFound}
+carToRemove? : LicencePlate\\
+alert! : Message\\
+\ST
+carToRemove? \notin dom~Vehicle\\
+alert! = \ 'LicensePlateNotFound'
+\end{op}\\
+DeallocateVehicle  \ \mathrel{\widehat{=}} \ DeallocateVehicleOK \vee LicensePlateNotFound 
 \end{class}
 
 \newpage
