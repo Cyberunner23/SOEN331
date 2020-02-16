@@ -38,45 +38,46 @@ Pierre-Olivier Trottier (40059235) \tabularnewline\\
 \also
 \upharpoonright (AllocateVehicleOK, DeallocateVehicleOK, FindVehicleOK) \\
 \begin{state}
-Vehicle : LicencePlate  \rightarrowtail ParkingSpot\\
+vehicles : LicencePlate  \rightarrowtail ParkingSpot\\
 \where
 \end{state} \\
 \begin{init}
-Vehicle = \emptyset %\{ \}
+vehicles = \emptyset %\{ \}
 \end{init} \\
-\begin{op}{AddEmployee}
-\Delta (employeeSalary) \\
-newEmployee? : Employee\\
-salary? : \mathbb{R}
+\begin{op}{AllocateVehicleOK}
+\Delta (vehicle) \\
+newLicensePlate? : LicencePlate\\
+parkingSpot? : ParkingSpot\\
 \ST
-salary? > 0.0 \\
-newEmployee? \notin dom~employeeSalary\\
-employeeSalary' = employeeSalary \cup \{ newEmployee \mapsto salary? \}
+newLicensePlate? \notin dom~vehicles\\
+parkingSpot? \notin ran~vehicles\\
+vehicles' = vehicles \union \{ newLicensePlate? \rightarrowtail parkingSpot? \}
 \end{op}\\
 \begin{op}{DeallocateVehicleOK}
-\Delta (Vehicle) \\
+\Delta (vehicle) \\
 carToRemove? : LicencePlate\\
 \ST
-carToRemove? \in dom~Vehicle\\
-Vehicle' = \{ carToRemove? \} \ndres Vehicle
+carToRemove? \in dom~vehicles\\
+vehicles' = \{ carToRemove? \} \ndres vehicles
 \end{op}\\
-\begin{op}{ModifySalary}
-\Delta (employeeSalary) \\
-employee? : Employee\\
-newSalary? : \mathbb{R}
+\begin{op}{ErrorAlreadyAssigned}
+newLicensePlate? : LicencePlate\\
+parkingSpot? : ParkingSpot\\
+alert! : Message\\
 \ST
-newSalary? > 0.0 \\
-employee? \in dom~employeeSalary\\
-employeeSalary' = employeeSalary \oplus \{ employee? \mapsto newSalary? \}
+newLicensePlate? \in dom~vehicles\\
+parkingSpot? \in ran~vehicles\\
+alert! = \ 'ErrorAlreadyAssigned'
 \end{op}\\
-\begin{op}{LicensePlateNotFound}
+\begin{op}{ErrorNotFound}
 carToRemove? : LicencePlate\\
 alert! : Message\\
 \ST
-carToRemove? \notin dom~Vehicle\\
-alert! = \ 'LicensePlateNotFound'
+carToRemove? \notin dom~vehicles\\
+alert! = \ 'ErrorNotFound'
 \end{op}\\
-DeallocateVehicle  \ \mathrel{\widehat{=}} \ DeallocateVehicleOK \vee LicensePlateNotFound 
+AllocateVehicle  \ \mathrel{\widehat{=}} \ (AllocateVehicleOK \wedge SuccessAllocated) \vee ErrorAlreadyAssigned \\
+DeallocateVehicle  \ \mathrel{\widehat{=}} \ (DeallocateVehicleOK \wedge SuccessDeallocated) \vee ErrorNotFound \\
 \end{class}
 
 \newpage
@@ -84,41 +85,7 @@ DeallocateVehicle  \ \mathrel{\widehat{=}} \ DeallocateVehicleOK \vee LicensePla
 \section{Parking Management 2}
 
 \begin{class}{ParkingManagement2}
-\also
-\upharpoonright (AddEmployee, DeleteEmployee, ModifySalary) \\
-\begin{state}
-employeeSalary : Employee \pfun \mathbb{R}\\
-\where
-\forall d : dom~employeeSalary \bullet employeeSalary(d) > 0.0
-\end{state} \\
-\begin{init}
-employeeSalary = \emptyset %\{ \}
-\end{init} \\
-\begin{op}{AddEmployee}
-\Delta (employeeSalary) \\
-newEmployee? : Employee\\
-salary? : \mathbb{R}
-\ST
-salary? > 0.0 \\
-newEmployee? \notin dom~employeeSalary\\
-employeeSalary' = employeeSalary \cup \{ newEmployee \mapsto salary? \}
-\end{op}\\
-\begin{op}{DeleteEmployee}
-\Delta (employeeSalary) \\
-who? : Employee\\
-\ST
-who? \in dom~employeeSalary\\
-employeeSalary' = \{ who \} \ndres employeeSalary
-\end{op}\\
-\begin{op}{ModifySalary}
-\Delta (employeeSalary) \\
-employee? : Employee\\
-newSalary? : \mathbb{R}
-\ST
-newSalary? > 0.0 \\
-employee? \in dom~employeeSalary\\
-employeeSalary' = employeeSalary \oplus \{ employee? \mapsto newSalary? \}
-\end{op}\\
+TODO
 \end{class}
 
 
