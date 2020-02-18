@@ -37,7 +37,7 @@ Pierre-Olivier Trottier (40059235) \tabularnewline\\
 
 \begin{class}{ParkingManagement}
 \also
-\upharpoonright (AllocateVehicleOK, DeallocateVehicleOK, FindVehicleOK) \\
+\upharpoonright (AllocateVehicle, DeallocateVehicle, FindVehicle) \\
 \begin{state}
 vehicles : LicencePlate  \rightarrowtail ParkingSpot\\
 \where
@@ -46,7 +46,7 @@ vehicles : LicencePlate  \rightarrowtail ParkingSpot\\
 vehicles = \emptyset %\{ \}
 \end{init} \\
 \begin{op}{AllocateVehicleOK}
-\Delta (vehicle) \\
+\Delta (vehicles) \\
 newCar? : LicencePlate\\
 parkingSpot? : ParkingSpot\\
 \ST
@@ -55,7 +55,7 @@ parkingSpot? \notin ran~vehicles\\
 vehicles' = vehicles \union \{ newCar? \rightarrowtail parkingSpot? \}
 \end{op}\\
 \begin{op}{DeallocateVehicleOK}
-\Delta (vehicle) \\
+\Delta (vehicles) \\
 carToRemove? : LicencePlate\\
 \ST
 carToRemove? \in dom~vehicles\\
@@ -101,7 +101,7 @@ FindVehicle  \ \mathrel{\widehat{=}} \ FindVehicleOK \vee ErrorNotFound \\
 \section{Parking Management 2}
 
 \begin{class}{ParkingManagement2}
-\upharpoonright (AllocateVehicleOK, DeallocateVehicleOK, FindVehicleOK)\\
+\upharpoonright (AllocateVehicle, DeallocateVehicle, FindVehicle)\\
 ParkingManagement\\
 \begin{state}
 numberOfVehicles = \mathbb{N}
@@ -128,7 +128,13 @@ AllVehicles! = numberOfVehicles\\
 \end{op}\\
 \begin{op}{ReallocateVehicleOK}
 \\
+\Delta (vehicles)\\
+carToFind? : LicencePlate\\
+newSpot?: ParkingSpot\\
 \ST
+carToFind? \in dom~vehicles\\
+newSpot? \notin ran~vehicles\\
+vehicles' = vehicles \oplus \{ carToFind? \rightarrowtail newSpot? \}
 \\
 \end{op}\\
 \begin{op}{GetAllVehicles}
@@ -136,11 +142,8 @@ listOfVehicles! : LicencePlate  \rightarrowtail ParkingSpot\\\\
 \ST
 listOfVehicles! = vehicles\\
 \end{op}\\
+ReallocateVehicle \ \mathrel{\widehat{=}} \ ReallocateVehicleOK \vee ErrorNotFound \vee ErrorAlreadyAssigned\\
 \end{class}
-
-
-
-
 
 \end{spacing}
 \end{document}
