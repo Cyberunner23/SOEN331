@@ -12,6 +12,7 @@
 \usepackage{oz}
 \usepackage[cc]{titlepic}
 \usepackage{fancyvrb}
+\usepackage{amsfonts} 
 
 
 \title{SOEN 331-U: Introduction to Formal Methods\\for Software Engineering\\
@@ -100,7 +101,41 @@ FindVehicle  \ \mathrel{\widehat{=}} \ FindVehicleOK \vee ErrorNotFound \\
 \section{Parking Management 2}
 
 \begin{class}{ParkingManagement2}
-TODO
+\upharpoonright (AllocateVehicleOK, DeallocateVehicleOK, FindVehicleOK)\\
+ParkingManagement\\
+\begin{state}
+numberOfVehicles = \mathbb{N}
+\where
+numberOfVehicles > 0
+\end{state} \\
+\begin{init}
+numberOfVehicles = 0 \\
+\end{init} \\
+\begin{op}{AllocateVehicleOK}
+\Delta (numberOfVehicles)\\
+\ST
+numberOfVehicles' = numberOfVehicles + 1\\
+\end{op}\\
+\begin{op}{DeallocateVehicleOK}
+\Delta (numberOfVehicles)\\
+\ST
+numberOfVehicles' = numberOfVehicles - 1\\
+\end{op}\\
+\begin{op}{GetNumberOfVehicles }
+AllVehicles! : \mathbb{N}\\
+\ST
+AllVehicles! = numberOfVehicles\\
+\end{op}\\
+\begin{op}{ReallocateVehicleOK}
+\\
+\ST
+\\
+\end{op}\\
+\begin{op}{GetAllVehicles}
+listOfVehicles! : LicencePlate  \rightarrowtail ParkingSpot\\\\
+\ST
+listOfVehicles! = vehicles\\
+\end{op}\\
 \end{class}
 
 
