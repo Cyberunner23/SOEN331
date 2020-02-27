@@ -1,0 +1,4 @@
+
+"the driver has also the option to initial a cruise signal"  should read
+
+" the driver has also the option to initiate a cruise signal  ..."
