@@ -11,7 +11,13 @@
 
 \title{SOEN331: Introduction to Formal Methods\\for Software Engineering\\
 Assignment 2 on Extended Finite State Machines}
-\author{Author's name}
+\author{\begin{tabular}{c}
+Alec Adub (40032876) \tabularnewline
+Alex Frappier Lachapelle (40019133) \tabularnewline
+Robert Nittolo (40032587) \tabularnewline
+Pierre-Olivier Trottier (40059235) \tabularnewline\\
+\end{tabular}
+}
 \date{\today}
 
 \begin{document}
@@ -19,7 +25,11 @@ Assignment 2 on Extended Finite State Machines}
 
 \maketitle
 
-\section{Metro passageway formal specification}
+\newpage
+
+\section{Autonomous car formal specification}
+
+\noindent \textbf{TODO}
 
 \noindent The EFSM of the metro passageway is the tuple $S = (Q, \Sigma_1, \Sigma_2, q_0, V, \Lambda)$, where\\
 
@@ -33,7 +43,7 @@ Assignment 2 on Extended Finite State Machines}
 \indent 2. $locked \xrightarrow {\text { request entry [ticket is valid] / (unlock ; beep)}} unlocked$\\
 \indent 3. $unlocked \xrightarrow {\text { pass / lock}} locked$\\
 
-\noindent The UML state diagram is shown in Figure~\ref{fig:metro-fig}.
+\noindent The UML state diagram is shown in Figure~\ref{fig:state-diagram}.
 
 \newpage
 
@@ -41,9 +51,9 @@ Assignment 2 on Extended Finite State Machines}
 
 \begin{figure}[h!]
 	\centering
-		\includegraphics[width=0.8\textwidth]{./figures/eps/metro.eps}
-		  \caption{Metro.}
-  \label{fig:metro-fig}
+		\includegraphics[width=0.8\textwidth]{./figures/eps/EFSM.eps}
+		  \caption{UML state diagram of the autonomous car}
+  \label{fig:state-diagram}
 \end{figure}
 
 \end{spacing}
