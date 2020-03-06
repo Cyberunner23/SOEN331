@@ -81,24 +81,6 @@ engine~runs~slower\}$\\
 \indent 4. $driving~mode \xrightarrow {\text { break/engine~is~stopped}} break~mode$\\
 \indent 5. $break~mode \xrightarrow {\text { accelerate/engine~runs~faster}} driving~mode$\\
 \newpage
-\noindent \textbf{Manual driving mode}
-
-\noindent The EFSM of the manual driving mode is the tuple $S = (Q, \Sigma_1, \Sigma_2, q_0, V, \Lambda)$, where\\
-
-\noindent $Q = \{driving~mode, break~mode\}$\\
-\noindent $\Sigma_1 = \{accelerate,reduce~speed,break\}$\\
-\noindent $\Sigma_2 = \{engine~runs~faster,engine~is~stopped,
-engine~runs~slower\}$\\
-\noindent $q_0: driving~mode$\\
-\noindent $V: speed:Z~max:Z$\\
-\noindent $\Lambda$: Transition specifications\\
-\indent 1. $\rightarrow driving~mode$\\
-\indent 2. $driving~mode \xrightarrow {\text { accelerate~[speed<max]/engine~runs~faster}} driving~mode$\\
-\indent 3. $driving~mode \xrightarrow {\text { reduce~speed~[speed>0]/engine~runs~slower}} driving~mode$\\
-\indent 4. $driving~mode \xrightarrow {\text { break/engine~is~stopped}} break~mode$\\
-\indent 5. $break~mode \xrightarrow {\text { accelerate/engine~runs~faster}} driving~mode$\\
-
-\newpage
 \noindent \textbf{Avoiding obstacles}
 
 \noindent The EFSM of the avoiding obstacles $S = (Q, \Sigma_1, \Sigma_2, q_0, V, \Lambda)$, where\\
@@ -135,7 +117,27 @@ engine~runs~slower\}$\\
 \indent 6. $decelerate \xrightarrow {\text { check~speed[0.95 default < currentSpeed < 1.05 default]/maintain}} cruising$\\
 
 \newpage
+\noindent \textbf{Panic state}
 
+\noindent The EFSM of the panic state $S = (Q, \Sigma_1, \Sigma_2, q_0, V, \Lambda)$, where\\
+
+\noindent $Q = \{Initial~state,panic,parked\}$\\
+\noindent $\Sigma_1 = \{manual~signal~on,automatic~signal~on,check~panic~signal\}$\\
+\noindent $\Sigma_2 = \{Stop~and~hazards~ON,panic~signal~OFF\}$\\
+\noindent $q_0: initial~state$\\
+\noindent $V: UserTurnedSignalPanicSignal = \{ON, OFF\}$\\
+\noindent $\Lambda$: Transition specifications\\
+\indent 1. $\rightarrow initial~state$\\
+\indent 2. $initial~state \xrightarrow {\text { automatic~signal~ON/stops~and~hazard~ON}} panic$\\
+\indent 3. $initial~state \xrightarrow {\text { manual~signal~ON/stops~and~hazard~ON}} panic$\\
+\indent 4. $panic \xrightarrow {\text { Check~panic~signal[UserTurnedPanicSignalOFF]/panic~signal~OFF}} parked$\\
+
+\newpage
+
+
+
+
+\newpage
 \section{UML state diagrams}
 
 \begin{figure}[h!]
