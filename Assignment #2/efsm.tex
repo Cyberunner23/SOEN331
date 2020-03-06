@@ -81,6 +81,42 @@ engine~runs~slower\}$\\
 \indent 4. $driving~mode \xrightarrow {\text { break/engine~is~stopped}} break~mode$\\
 \indent 5. $break~mode \xrightarrow {\text { accelerate/engine~runs~faster}} driving~mode$\\
 \newpage
+\noindent \textbf{Manual driving mode}
+
+\noindent The EFSM of the manual driving mode is the tuple $S = (Q, \Sigma_1, \Sigma_2, q_0, V, \Lambda)$, where\\
+
+\noindent $Q = \{driving~mode, break~mode\}$\\
+\noindent $\Sigma_1 = \{accelerate,reduce~speed,break\}$\\
+\noindent $\Sigma_2 = \{engine~runs~faster,engine~is~stopped,
+engine~runs~slower\}$\\
+\noindent $q_0: driving~mode$\\
+\noindent $V: speed:Z~max:Z$\\
+\noindent $\Lambda$: Transition specifications\\
+\indent 1. $\rightarrow driving~mode$\\
+\indent 2. $driving~mode \xrightarrow {\text { accelerate~[speed<max]/engine~runs~faster}} driving~mode$\\
+\indent 3. $driving~mode \xrightarrow {\text { reduce~speed~[speed>0]/engine~runs~slower}} driving~mode$\\
+\indent 4. $driving~mode \xrightarrow {\text { break/engine~is~stopped}} break~mode$\\
+\indent 5. $break~mode \xrightarrow {\text { accelerate/engine~runs~faster}} driving~mode$\\
+
+\newpage
+\noindent \textbf{Avoiding obstacles}
+
+\noindent The EFSM of the avoiding obstacles $S = (Q, \Sigma_1, \Sigma_2, q_0, V, \Lambda)$, where\\
+
+\noindent $Q = \{crusing,tailing~mode,change~lane\}$\\
+\noindent $\Sigma_1 = \{check~distance,lane~change,check~lane~change\}$\\
+\noindent $\Sigma_2 = \{maintain~speed,slow~down\}$\\
+\noindent $q_0: crusing$\\
+\noindent $V: Distance:Z~threshold~limit:Z$\\
+\noindent $\Lambda$: Transition specifications\\
+\indent 1. $\rightarrow cruising$\\
+\indent 2. $cruising \xrightarrow {\text { check~distance[distance>thresholdLimit]/maintain~speed}} cruising$\\
+\indent 3. $cruising \xrightarrow {\text { lane~change/change~one~left~lane}} change~lane$\\
+\indent 4. $crusing \xrightarrow {\text { check~distance[distance<thresholdLimit]/slow~down}} tailing~mode$\\
+\indent 5. $driving~mode \xrightarrow {\text { break/engine~is~stopped}} break~mode$\\
+\indent 6. $tailing~mode \xrightarrow {\text { check~distance[distance<thresholdLimit]/maintain~speed}} crusing$\\
+
+\newpage
 
 \section{UML state diagrams}
 
