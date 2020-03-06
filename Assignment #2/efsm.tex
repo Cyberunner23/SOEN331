@@ -49,8 +49,18 @@ Pierre-Olivier Trottier (40059235) \tabularnewline\\
 \indent 8. $manual~driving~mode \rightarrow  parked~mode$\\
 \indent 9. $parked~mode \rightarrow   turned~OFF$\\
 
+\newpage
+\noindent \textbf{parked mode}
 
-\noindent The UML state diagram is shown in Figure~\ref{fig:state-diagram}.
+\noindent The EFSM of the parked is the tuple $S = (Q, \Sigma_1, \Sigma_2, q_0, V, \Lambda)$, where\\
+
+\noindent $Q = \{parked~mode\}$\\
+\noindent $\Sigma_1 = \{set~destination\}$\\
+\noindent $\Sigma_2 = \{the~navigations~system's~destination~is~set\}$\\
+\noindent $q_0: parked$\\
+\noindent $\Lambda$: Transition specifications\\
+\indent 1. $\rightarrow parked$\\
+\indent 2. $parked \xrightarrow {\text { set~destination/the~navigations~system's~destination~is~set}} parked$\\
 
 \newpage
 
