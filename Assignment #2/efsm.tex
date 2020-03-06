@@ -1,5 +1,6 @@
 \documentclass[12pt]{article}
 \usepackage[top=1in,bottom=1in,left=1in,right=1in]{geometry}
+\usepackage{amsfonts} 
 \usepackage{alltt}
 \usepackage{array}	
 \usepackage{graphicx}
@@ -29,7 +30,7 @@ Pierre-Olivier Trottier (40059235) \tabularnewline\\
 
 \section{Formal specification}
 
-\noindent \textbf{autonomous car}
+\noindent \textbf{Autonomous car}
 
 \noindent The EFSM of the autonomous car is the tuple $S = (Q, \Sigma_1, \Sigma_2, q_0, V, \Lambda)$, where\\
 
@@ -50,7 +51,7 @@ Pierre-Olivier Trottier (40059235) \tabularnewline\\
 \indent 9. $parked~mode \rightarrow   turned~OFF$\\
 
 \newpage
-\noindent \textbf{parked mode}
+\noindent \textbf{Parked mode}
 
 \noindent The EFSM of the parked is the tuple $S = (Q, \Sigma_1, \Sigma_2, q_0, V, \Lambda)$, where\\
 
@@ -62,6 +63,23 @@ Pierre-Olivier Trottier (40059235) \tabularnewline\\
 \indent 1. $\rightarrow parked$\\
 \indent 2. $parked \xrightarrow {\text { set~destination/the~navigations~system's~destination~is~set}} parked$\\
 
+\newpage
+\noindent \textbf{Manual driving mode}
+
+\noindent The EFSM of the manual driving mode is the tuple $S = (Q, \Sigma_1, \Sigma_2, q_0, V, \Lambda)$, where\\
+
+\noindent $Q = \{driving~mode, break~mode\}$\\
+\noindent $\Sigma_1 = \{accelerate,reduce~speed,break\}$\\
+\noindent $\Sigma_2 = \{engine~runs~faster,engine~is~stopped,
+engine~runs~slower\}$\\
+\noindent $q_0: driving~mode$\\
+\noindent $V: speed:Z~max:Z$\\
+\noindent $\Lambda$: Transition specifications\\
+\indent 1. $\rightarrow driving~mode$\\
+\indent 2. $driving~mode \xrightarrow {\text { accelerate~[speed<max]/engine~runs~faster}} driving~mode$\\
+\indent 3. $driving~mode \xrightarrow {\text { reduce~speed~[speed>0]/engine~runs~slower}} driving~mode$\\
+\indent 4. $driving~mode \xrightarrow {\text { break/engine~is~stopped}} break~mode$\\
+\indent 5. $break~mode \xrightarrow {\text { accelerate/engine~runs~faster}} driving~mode$\\
 \newpage
 
 \section{UML state diagrams}
