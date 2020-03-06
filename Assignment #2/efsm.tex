@@ -117,6 +117,24 @@ engine~runs~slower\}$\\
 \indent 6. $tailing~mode \xrightarrow {\text { check~distance[distance<thresholdLimit]/maintain~speed}} crusing$\\
 
 \newpage
+\noindent \textbf{Maintain Desired speed}
+
+\noindent The EFSM of maintain desired speed $S = (Q, \Sigma_1, \Sigma_2, q_0, V, \Lambda)$, where\\
+
+\noindent $Q = \{crusing,accelerate,decelerate\}$\\
+\noindent $\Sigma_1 = \{check~speed,accelerate~signal\}$\\
+\noindent $\Sigma_2 = \{maintain~speed,accelerate,decelerate\}$\\
+\noindent $q_0: crusing$\\
+\noindent $V: currentSpeed:Z~maxSpeed:Z$\\
+\noindent $\Lambda$: Transition specifications\\
+\indent 1. $\rightarrow cruising$\\
+\indent 2. $cruising \xrightarrow {\text { check~speed[0.95 default < currentSpeed < 1.05 default]/maintain}} cruising$\\
+\indent 3. $cruising \xrightarrow {\text { check~speed[currentSpeed<maxSpeed]/decelerate}} accelerate$\\
+\indent 4. $cruising \xrightarrow {\text { check~speed[currentSpeed>maxSpeed]/decelerate}} decelerate$\\
+\indent 5. $accelerate \xrightarrow {\text { check~speed[0.95 default < currentSpeed < 1.05 default]/maintain}} cruising$\\
+\indent 6. $decelerate \xrightarrow {\text { check~speed[0.95 default < currentSpeed < 1.05 default]/maintain}} cruising$\\
+
+\newpage
 
 \section{UML state diagrams}
 
