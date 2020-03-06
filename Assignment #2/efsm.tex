@@ -131,11 +131,47 @@ engine~runs~slower\}$\\
 \indent 2. $initial~state \xrightarrow {\text { automatic~signal~ON/stops~and~hazard~ON}} panic$\\
 \indent 3. $initial~state \xrightarrow {\text { manual~signal~ON/stops~and~hazard~ON}} panic$\\
 \indent 4. $panic \xrightarrow {\text { Check~panic~signal[UserTurnedPanicSignalOFF]/panic~signal~OFF}} parked$\\
+\newpage
+\noindent \textbf{Navigation mode state}
+
+\noindent The EFSM of the navigation mode state $S = (Q, \Sigma_1, \Sigma_2, q_0, V, \Lambda)$, where\\
+
+\noindent $Q = \{cruising,lane~change,turn,destination~ahead,destination~arrived\}$\\
+\noindent $\Sigma_1 = \{verify~turn~finished,verify~turn~left,verify~turn~right,check~right~signal
+,check~left~signal,$\\
+\noindent $check~destination,check~lane\}$\\
+\noindent $\Sigma_2 = \{left~turn,right~turn,turn~on~destination~ahead~signal
+,turn~OFF~signal,turn~right~and~stop,$\\
+\noindent $signal~OFF,
+change~to~right~most,change~to~left~most\}$\\
+\noindent $q_0: crusing$\\
+\noindent $V: isRightMost = \{yes, no\}$\\
+\noindent $\Lambda$: Transition specifications\\
+\indent 1. $\rightarrow crusing$\\
+\indent 2. $crusing \xrightarrow {\text { Check~Right~Signal[IsRightSignalOn]
+/Change~to~right~most~lane}} lane~change$\\
+\indent 3. $lane~change \xrightarrow {\text { Check~Lane[IsLeftMost~or~IsRightMost]
+/Signal~off}} crusing$\\
+\indent 4. $crusing \xrightarrow {\text { Check~Destination[IsDestinationAhead]/Turn~on~ Destination~Ahead~Signal}} destination~ahead$\\
+\indent 5. $destination~ahead \xrightarrow {\text { Check~Lane[IsRightMost]}} turn$\\
+\indent 6. $turn \xrightarrow {\text { Check~ Lane[IsRightMost~and~ DestinationAheadSignalisOn]/Turn~off~ Signal,Turn~right~and~Stop}} destination arrived$\\
+
+
 
 \newpage
+\noindent \textbf{Changing Lane}
 
+\noindent The EFSM of changing lane $S = (Q, \Sigma_1, \Sigma_2, q_0, V, \Lambda)$, where\\
 
-
+\noindent $Q = \{crusing,panic,lane~change\}$\\
+\noindent $\Sigma_1 = \{left~lane~change,right~lane~change,panic\}$\\
+\noindent $\Sigma_2 = \{change~lane,panic~button~turned~ON\}$\\
+\noindent $q_0: crusing$\\
+\noindent $V: laneOpen, signalOn = \{yes, no\}$\\
+\noindent $\Lambda$: Transition specifications\\
+\indent 1. $\rightarrow cruising$\\
+\indent 2. $cruising \xrightarrow {\text { Left~Lane~Change[LeftSignalOn]}} lane~changed$\\
+\indent 3. $cruising \xrightarrow {\text { Panic(LeftLaneNotOpen and RightLaneNotOpen and ObstacleDetected]/panic~mode~ON}} panic$\\
 
 \newpage
 \section{UML state diagrams}
