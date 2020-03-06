@@ -27,21 +27,28 @@ Pierre-Olivier Trottier (40059235) \tabularnewline\\
 
 \newpage
 
-\section{Autonomous car formal specification}
+\section{Formal specification}
 
-\noindent \textbf{TODO}
+\noindent \textbf{autonomous car}
 
-\noindent The EFSM of the metro passageway is the tuple $S = (Q, \Sigma_1, \Sigma_2, q_0, V, \Lambda)$, where\\
+\noindent The EFSM of the autonomous car is the tuple $S = (Q, \Sigma_1, \Sigma_2, q_0, V, \Lambda)$, where\\
 
-\noindent $Q = \{locked, unlocked\}$\\
-\noindent $\Sigma_1 = \{request~entry, pass\}$\\
-\noindent $\Sigma_2 = \{lock, unlock, beep\}$\\
-\noindent $q_0: locked$\\
-\noindent $V: ticket = \{valid, invalid\}$\\
+\noindent $Q = \{idle, parked~mode, manual~ driving~mode, cruise~mode, panic~mode\}$\\
+\noindent $\Sigma_1 = \{ignition, cruise, drive, switch~to~manual, turn~OFF~panic, unforseen~event, turn~OFF\}$\\
+\noindent $\Sigma_2 = \{beep, car~is~stopped,  hazard~signal~is~turned~ON, hazard~signal~is~turned~OFF\}$\\
+\noindent $q_0: idle$\\
+\noindent $V: destination = \{is~set, is~not~ set\}~engine = \{is~idle, is~not~idle\}$\\
 \noindent $\Lambda$: Transition specifications\\
-\indent 1. $\rightarrow locked$\\
-\indent 2. $locked \xrightarrow {\text { request entry [ticket is valid] / (unlock ; beep)}} unlocked$\\
-\indent 3. $unlocked \xrightarrow {\text { pass / lock}} locked$\\
+\indent 1. $\rightarrow idle$\\
+\indent 2. $parked~mode \xrightarrow {\text { cruise~[destination~is~set]}} cruise~mode$\\
+\indent 3. $parked~mode \xrightarrow {\text { cruise~[destination~is~not~set]}} manual~driving~mode$\\
+\indent 4. $parked~mode \xrightarrow {\text { drive~[engine~is~idle]}} manual~driving~mode$\\
+\indent 5. $cruise~mode \xrightarrow {\text { drive~[engine~is~idle]}} parked~mode$\\
+\indent 6. $cruise~mode \xrightarrow {\text { unforseen~event/car~is~stopped;~hazard~signal~is~turned~ON}} panic~mode$\\
+\indent 7. $cruise~mode \xrightarrow {\text { switch~to~manual}} manual~mode$\\
+\indent 8. $manual~driving~mode \rightarrow  parked~mode$\\
+\indent 9. $parked~mode \rightarrow   turned~OFF$\\
+
 
 \noindent The UML state diagram is shown in Figure~\ref{fig:state-diagram}.
 
@@ -51,7 +58,19 @@ Pierre-Olivier Trottier (40059235) \tabularnewline\\
 
 \begin{figure}[h!]
 	\centering
-		\includegraphics[width=0.8\textwidth]{./figures/eps/EFSM.eps}
+		\includegraphics[width=1\textwidth]{./figures/eps/EFSM.eps}
+		  \caption{UML state diagram of the autonomous car}
+  \label{fig:state-diagram}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+		\includegraphics[width=1\textwidth]{./figures/CruiseMode-p2}
+		  \caption{UML state diagram of the autonomous car}
+  \label{fig:state-diagram}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+		\includegraphics[width=1\textwidth]{./figures/CruiseMode-p3}
 		  \caption{UML state diagram of the autonomous car}
   \label{fig:state-diagram}
 \end{figure}
