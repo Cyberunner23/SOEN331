@@ -1,0 +1,213 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,bottom=1in,left=1in,right=1in]{geometry}
+\usepackage{alltt}
+\usepackage{array}	
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{verbatim}
+\usepackage{setspace}
+\usepackage{listings}
+\usepackage{amssymb,amsmath, amsthm}
+\usepackage{qtree}
+\usepackage{hyperref}
+\usepackage{oz}
+\usepackage[cc]{titlepic}
+\usepackage{fancyvrb}
+\usepackage{epstopdf}
+
+\title{SOEN 331 (Section): Introduction to Formal Methods\\for Software Engineering\\
+\ \\
+Assignment 3 on Temporal Logic}
+\author{\textbf{Name(s)}\\
+		\texttt{Email(s)}
+\ \\}
+\date{Date}
+
+\begin{spacing}{1.5}
+\begin{document}
+\maketitle
+
+\newpage
+
+\section*{Problem 1 (20 pts):  Analyzing program behavior}
+
+\begin{enumerate}
+
+\item (10 pts) Visualize all models of behavior.
+
+%
+%\begin{figure}[h!]
+%  \centering
+%  \includegraphics[width=0.9\textwidth]{file.eps}
+%\end{figure}
+
+\item (3 pts) Specify conditions (model of behavior), if any exist, under which the program can terminate.
+
+\item (7 pts) For the expressions below, indicate (true/false) whether there exists a 
+model where the expression holds. When true, cross reference your particular model:
+
+\begin{table}
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{PROPERTY}							& \textbf{TRUE/FALSE}\\
+\hline
+
+$(a \wedge c) \rightarrow \Diamond \Box (g \wedge h)$	 &\\
+
+&\\
+
+\hline
+
+&\\
+		
+$h ~\mathcal{U}~ m$									 &\\
+
+&\\
+
+\hline
+
+&\\
+		
+$h ~\mathcal{U}~ (k \wedge g)$						 &\\
+
+&\\
+
+\hline
+
+&\\
+		
+$(b \wedge c) \rightarrow \Box \Diamond (b \wedge c)$  &\\
+
+&\\
+
+\hline
+
+&\\
+		
+$(k \wedge \bigcirc (k \wedge g)) \rightarrow \bigcirc m$  &\\
+
+&\\
+
+\hline
+
+&\\
+		
+$ h ~\mathcal{S}~ c$								 &\\
+
+&\\
+
+\hline
+
+&\\
+		
+$ ((g \wedge h) \wedge \bigcirc d) \rightarrow \bigcirc^{2} (g \wedge h)$  &\\
+
+&\\
+
+\hline
+
+&\\
+		
+$e ~\mathcal{R}~ h$									 &\\
+
+&\\
+
+\hline
+
+&\\
+		
+The program has the following stability property: &\\
+$\Diamond \Box (b \wedge \ c \wedge h)$		 &\\
+
+&\\
+
+\hline
+
+&\\
+		
+The program has the following response property: &\\
+$\Box \Diamond (b \wedge \ c \wedge h)$		 &\\
+
+&\\
+
+\hline
+
+&\\
+		
+$( g \wedge h)$ is an invariant property of the program.  &\\
+
+&\\
+
+\hline
+
+&\\
+		
+There is a guarantee that $(g \wedge k \wedge h)$	 &\\
+
+&\\
+
+\hline
+
+&\\
+		
+The program has the following response property: &\\
+$(b \wedge c \wedge h) \rightarrow \Diamond (b \wedge c \wedge h)$.   &\\
+
+&\\
+
+\hline
+
+&\\
+		
+The program has the following precedence property: &\\
+$(b \wedge c \wedge h) \rightarrow ( (g \wedge h) ~\mathcal{U}~ b \wedge c \wedge h))$
+			 &\\
+&\\
+
+\hline
+
+\end{tabular}
+\end{table}
+
+
+\end{enumerate}
+
+
+\newpage
+
+\section*{Problem 2 (20 pts) :  Visualizing temporal expressions}
+
+\begin{enumerate}
+
+	\item $\Box (\phi \rightarrow \bigcirc^{2} \psi)$
+
+	\item $\Box \phi \rightarrow \bigcirc \psi$
+	
+	\item $\phi \rightarrow \bigcirc \Diamond \Box \psi$
+	
+	\item $(\phi \wedge \bigcirc \psi) \rightarrow \bigcirc^{2} \Diamond \Box \omega$
+	
+	\item $\Box ((\phi \wedge \bigcirc \psi) \rightarrow \bigcirc^{2} \Diamond \Box \omega)$
+	
+	\item $(\phi \wedge \bigcirc \psi) \rightarrow \tau ~\mathcal{R}~ \upsilon$
+	
+	\item $(\phi \wedge \bigcirc \psi) \rightarrow \bigcirc (\tau ~\mathcal{R}~ \upsilon)$
+
+	\item $(\phi \wedge \bigcirc \psi) \rightarrow \bigcirc (x ~\mathcal{U}~ \tau)$
+	
+	\item $(\phi \wedge \Box \psi) \rightarrow \bigcirc^{2} \Diamond \omega$
+	
+	\item $(\phi \wedge \bigcirc^{2} \psi) \rightarrow \bigcirc \Box \omega$
+
+\end{enumerate}
+
+%\begin{figure}[h!]
+%  \centering
+%  \includegraphics[width=0.8\textwidth]{file.eps}
+%\end{figure}
+
+
+
+\end{spacing}
+\end{document}
