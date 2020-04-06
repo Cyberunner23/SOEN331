@@ -181,14 +181,59 @@ $(b \wedge c \wedge h) \rightarrow ( (g \wedge h) ~\mathcal{U}~ b \wedge c \wedg
 \begin{enumerate}
 
 	\item $\Box (\phi \rightarrow \bigcirc^{2} \psi)$
+	
+	If $\phi$ is true at some moment, then $\psi$ is true at the next 		next moment.
+	
+	$\bullet-\bullet-\bullet-\bullet-\bullet-\bullet-\bullet$ \newline
+	$\phi-\circ-\psi-\circ-\circ-\circ-\circ$ \newline
+	or \newline
+	$\bullet-\bullet-\bullet-\bullet-\bullet-\bullet-\bullet$ \newline
+	$\circ-\circ-\circ-\circ-\phi-\circ-\psi$ \newline
+	etc... 
 
 	\item $\Box \phi \rightarrow \bigcirc \psi$
 	
+	If $\phi$ is globally true it implies that next $\psi$ is true.
+	
+	$\bullet-\bullet-\bullet-\bullet-\bullet-\bullet$ \newline
+	$\phi-\phi-\phi-\phi-\phi-\phi$ \newline
+	$\circ-\psi-\circ-\circ-\circ-\circ$
+	
 	\item $\phi \rightarrow \bigcirc \Diamond \Box \psi$
+	
+	$\phi$ implies $\psi$ becomes globally true at some point in time starting i+1.
+	
+	$\bullet-\bullet-\bullet-\bullet-\bullet-\bullet$ \newline
+	$\phi-\psi-\psi-\psi-\psi-\psi$ \newline
+	or \newline
+	$\bullet-\bullet-\bullet-\bullet-\bullet-\bullet$ \newline
+	$\phi-\circ-\circ-\psi-\psi-\psi$ \newline
+	etc...
 	
 	\item $(\phi \wedge \bigcirc \psi) \rightarrow \bigcirc^{2} \Diamond \Box \omega$
 	
+	$\phi$ and next $\psi$ implies that $\omega$ becomes globally true at some point in time starting i+2.
+	
+	$\bullet-\bullet-\bullet-\bullet-\bullet-\bullet$ \newline
+	$\phi-\psi-\omega-\omega-\omega-\omega$ \newline
+	or \newline
+	$\bullet-\bullet-\bullet-\bullet-\bullet-\bullet-\bullet$ \newline
+	$\phi-\psi-\circ-\circ-\omega-\omega-\omega$ \newline
+	etc...
+	
 	\item $\Box ((\phi \wedge \bigcirc \psi) \rightarrow \bigcirc^{2} \Diamond \Box \omega)$
+	
+	If $\phi$ and $\psi$ next is true at some moment, then $\omega$ becomes globally true at some point in time at the next next moment. 
+	
+	$\bullet-\bullet-\bullet-\bullet-\bullet-\bullet$ \newline
+	$\phi-\psi-\omega-\omega-\omega-\omega$ \newline
+	or \newline
+	$\bullet-\bullet-\bullet-\bullet-\bullet-\bullet-\bullet$ \newline
+	$\phi-\psi-\circ-\circ-\omega-\omega-\omega$ \newline
+	or \newline
+	$\bullet-\bullet-\bullet-\bullet-\bullet-\bullet$ \newline
+	$\circ-\circ-\phi-\psi-\omega-\omega$ \newline
+	etc...
 	
 	\item $(\phi \wedge \bigcirc \psi) \rightarrow \tau ~\mathcal{R}~ \upsilon$
 	
