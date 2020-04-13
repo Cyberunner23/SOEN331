@@ -26,16 +26,27 @@ Pierre-Olivier Trottier (40059235) - \texttt{po.trottier@gmail.com} \tabularnewl
 
 \newpage
 
-\noindent \textbf{Spec}: Set (Element);\\
-\noindent \textbf{Sort}: Set;\\
-\noindent \textbf{Imports}: Boolean, $\mathbb{N}_0$;\\
+\section*{Binary Search Tree}
+
+\noindent \textbf{Spec}: Binary Search Tree;\\
+\noindent \textbf{Sort}: BSTTreeTree;\\
+\noindent \textbf{Imports}: Element, Number, Boolean, $\mathbb{N}_0$;\\
 \noindent \textbf{Operations}:\\
-\hspace*{5mm} newset $\rightarrow$ Set;\\
-\hspace*{5mm} add : Set $\times$ Element $\rightarrow$ Set;\\
-\hspace*{5mm} remove : Set $\times$ Element $\rightarrow$ Set;\\
-\hspace*{5mm} size : Set $\rightarrow$ $\mathbb{N}_0$;\\
-\hspace*{5mm} isempty : Set $\rightarrow$ Boolean;\\
-\hspace*{5mm} ismember : Set $\times$ Element $\rightarrow$ Boolean;\\
+\hspace*{5mm} create $\rightarrow$ BSTTreeTree;\\
+\hspace*{5mm} add : BSTTreeTree $\times$ Number $\times$ Element $\rightarrow$ BSTTree;\\
+\hspace*{5mm} update : BSTTree $\times$ Number $\times$ Element $\rightarrow$ BSTTree;\\
+\hspace*{5mm} delete : BSTTree $\times$ Number $\rightarrow$ BSTTree;\\
+\hspace*{5mm} containsKey :  BSTTree $\times$ Number $\rightarrow$ Boolean;\\
+\hspace*{5mm} contains : BSTTree $\times$ Element $\rightarrow$ Boolean;\\
+\hspace*{5mm} left : BSTTree $\times$ Number $\rightarrow$ BSTTree;\\
+\hspace*{5mm} right : BSTTree $\times$ Number $\rightarrow$ BSTTree;\\
+\hspace*{5mm} parent : BSTTree $\times$ Number $\rightarrow$ Number;\\
+\hspace*{5mm} isLeaf : BSTTree $\times$ Number $\rightarrow$ Boolean;\\
+\hspace*{5mm} rootKey : BSTTree $\rightarrow$ Number;\\
+\hspace*{5mm} isEmpty : BSTTree $\rightarrow$ Boolean;\\
+\hspace*{5mm} depth : BSTTree $\rightarrow$ $\mathbb{N}_0$;\\
+\hspace*{5mm} nNodes : BSTTree $\rightarrow$ $\mathbb{N}_0$;\\
+\hspace*{5mm} nLeaves : BSTTree $\rightarrow$ $\mathbb{N}_0$;\\
 \noindent \textbf{Variables}:\\
 \hspace*{5mm} s: Set; x, y: Element;\\
 \noindent \textbf{Axioms}:\\
@@ -44,7 +55,28 @@ Pierre-Olivier Trottier (40059235) - \texttt{po.trottier@gmail.com} \tabularnewl
 \hspace*{5mm} [A3] ismember(add(s, x), x) = true;\\
 \hspace*{5mm} [A4] add(add(s, x), y) = add(add(s, y), x);\\
 
+\newpage
 
+\section*{AVL Tree}
+
+\noindent \textbf{Spec}: AVL Tree;\\
+\noindent \textbf{Sort}: AVLTree;\\
+\noindent \textbf{extend} BSTTree by\\
+\noindent \textbf{Description}:\\Declaration of an AVL tree, which is simply put, a balanced Binary Tree.\\
+\noindent \textbf{Operations}:\\
+\hspace*{5mm} create $\rightarrow$ AVLTree;\\
+\hspace*{5mm} add : AVLTree $\times$ Number $\times$ Element $\rightarrow$ AVLTree;\\
+\hspace*{5mm} update : AVLTree $\times$ Number $\times$ Element $\rightarrow$ AVLTree;\\
+\hspace*{5mm} delete : AVLTree $\times$ Number $\rightarrow$ AVLTree;\\
+\hspace*{5mm} balanceFactor :  AVLTree $\rightarrow$ $\mathbb{N}_0$;\\
+\hspace*{5mm} join : AVLTree $\times$ AVLTree $\rightarrow$ AVLTree;\\
+\noindent \textbf{Variables}:\\
+\hspace*{5mm} s: Set; x, y: Element;\\
+\noindent \textbf{Axioms}:\\
+\hspace*{5mm} [A1] isempty(newset) = true;\\
+\hspace*{5mm} [A2] ismember(newset, x) = false;\\
+\hspace*{5mm} [A3] ismember(add(s, x), x) = true;\\
+\hspace*{5mm} [A4] add(add(s, x), y) = add(add(s, y), x);\\
 
 \end{spacing}
 \end{document}
