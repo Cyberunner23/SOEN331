@@ -55,6 +55,26 @@ Pierre-Olivier Trottier (40059235) - \texttt{po.trottier@gmail.com} \tabularnewl
 \hspace*{5mm} [A3] ismember(add(s, x), x) = true;\\
 \hspace*{5mm} [A4] add(add(s, x), y) = add(add(s, y), x);\\
 
+\section*{Binary Search Tree (Aditional Questions)}
+
+\begin{enumerate}
+
+\item How do you define a $deleteAll$ method that deletes all the keys and elements of a given BSTree? Formally specify it.\\
+\textbf{deleteAll : BSTTree $\rightarrow$ BSTTree; \\ \textit{Where the Binary Tree returned is empty.}}
+
+\item How do you define a $getAllKeys$ method that finds all keys within the BST that have a specific associated value? Formally specify it.\\
+\textbf{getAllKeys : BSTTree $\times$ Element $\rightarrow$ Array; \\ \textit{Where the array contains all the retreived keys.}}
+
+\item Define axioms that verify the clause "$isLeaf(BSTree, Number)$ takes a binary search tree and returns true if the node, whose key is specified by the number is a leaf, otherwise it returns false".\\
+
+\item Define an axiom that verifies the clause "$rootKey(BSTree)$ takes a binary search tree and returns the key that is stored in the root of the tree".\\
+
+\item Define axiom(s) that verify the functionality of the $left(BSTree, Number)$ method for the cases: "if the left subtree does not exists, the method returns an empty tree".\\
+
+\item Define an axiom that verifies a correct key is returned by $parent(BSTree, Number)$.\\
+
+\end{enumerate}
+
 \newpage
 
 \section*{AVL Tree}
@@ -77,6 +97,16 @@ Pierre-Olivier Trottier (40059235) - \texttt{po.trottier@gmail.com} \tabularnewl
 \hspace*{5mm} [A2] ismember(newset, x) = false;\\
 \hspace*{5mm} [A3] ismember(add(s, x), x) = true;\\
 \hspace*{5mm} [A4] add(add(s, x), y) = add(add(s, y), x);\\
+
+\section*{AVL Tree (Aditional Questions)}
+
+\begin{enumerate}
+
+\item How do you define a method that verifies if a given tree is AVLTree?\\
+
+\item Identify classes (categories) of all operations defined in your specification for AVLTree.\\
+
+\end{enumerate}
 
 \end{spacing}
 \end{document}
