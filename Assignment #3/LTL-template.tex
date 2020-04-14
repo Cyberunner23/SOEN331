@@ -56,87 +56,95 @@ Pierre-Olivier Trottier (40059235) - \texttt{po.trottier@gmail.com} \tabularnewl
 \item (7 pts) For the expressions below, indicate (true/false) whether there exists a 
 model where the expression holds. When true, cross reference your particular model:
 
-\begin{table}
+\begin{table}\small
 \centering
 \begin{tabular}{|l|l|}
 \hline
 \textbf{PROPERTY}							& \textbf{TRUE/FALSE}\\
 \hline
 
-$(a \wedge c) \rightarrow \Diamond \Box (g \wedge h)$
-
-&\textbf{TRUE }\\
-&\textbf{Crossreferenced with 6 from formula in Q1 }\\
-
-\hline
-
-
-		
-$h ~\mathcal{U}~ m$									
-
-&\textbf{TRUE }\\
-&\textbf{Crossreferenced with 5 from formula in Q1 }\\
-
-
-
-\hline
-
-		
-$h ~\mathcal{U}~ (k \wedge g)$		
-&\textbf{FALSE}\\
-
-\hline
-
-		
-$(b \wedge c) \rightarrow \Box \Diamond (b \wedge c)$
- & \textbf{FALSE}\\
-
+$(a \wedge c) \rightarrow \Diamond \Box (g \wedge h)$	
+ &\textbf{TRUE}\\
+ &\textbf{Crossreferemced with behavior 6}\\
 &\\
 
 \hline
+
+
 		
-$(k \wedge \bigcirc (k \wedge g)) \rightarrow \bigcirc m$  & \textbf{FALSE}\\
+$h ~\mathcal{U}~ m$									 
+ &\textbf{TRUE}\\
+ &\textbf{Crossreferemced with behavior 5}\\
+&\\
+
+\hline
+
+&\\
+		
+$h ~\mathcal{U}~ (k \wedge g)$						
+ &\textbf{FALSE}\\
 
 &\\
 
 \hline
 
+&\\
 		
-$ h ~\mathcal{S}~ c$								
-&\textbf{TRUE }\\
-&\textbf{Crossreferenced with 6 from formula in Q1 }\\
-
-
-\hline
-
-		
-$ ((g \wedge h) \wedge \bigcirc d) \rightarrow \bigcirc^{2} (g \wedge h)$  & \textbf{FALSE}\\
-
+$(b \wedge c) \rightarrow \Box \Diamond (b \wedge c)$ 
+ &\textbf{FALSE}\\
 &\\
 
 \hline
 
+&\\
 		
-$e ~\mathcal{R}~ h$						
-&\textbf{TRUE }\\
-&\textbf{Crossreferenced with 8 from formula in Q1 }\\
+$(k \wedge \bigcirc (k \wedge g)) \rightarrow \bigcirc m$ 
+ &\textbf{FALSE}\\
+&\\
 
 \hline
 
+&\\
+		
+$ h ~\mathcal{S}~ c$							
+ &\textbf{TRUE}\\
+ &\textbf{Crossreferemced with behavior 6}\\
+&\\
+
+\hline
+
+&\\
+		
+$ ((g \wedge h) \wedge \bigcirc d) \rightarrow \bigcirc^{2} (g \wedge h)$
+ &\textbf{FALSE}\\
+&\\
+
+\hline
+
+&\\
+		
+$e ~\mathcal{R}~ h$								
+ &\textbf{TRUE}\\
+ &\textbf{Crossreferemced with behavior 8}\\
+&\\
+
+\hline
+
+&\\
 		
 The program has the following stability property: &\\
 $\Diamond \Box (b \wedge \ c \wedge h)$		
- & \textbf{FALSE}\\
-
+ &\textbf{FALSE}\\
+&\\
 
 \hline
 
 &\\
 		
-The program has the following response property: &\\
-$\Box \Diamond (b \wedge \ c \wedge h)$		 &\\
-&\textbf{TRUE }\\
-&\textbf{Crossreferenced with 9 from formula in Q1 }\\
+The program has the following recurrence property: &\\
+$\Box \Diamond (b \wedge \ c \wedge h)$		
+ &\textbf{TRUE}\\
+ &\textbf{Crossreferemced with behavior 9}\\
 &\\
 
 \hline
@@ -144,34 +152,34 @@ $\Box \Diamond (b \wedge \ c \wedge h)$		 &\\
 &\\
 		
 $( g \wedge h)$ is an invariant property of the program.  
-
-&\textbf{TRUE }\\
-&\textbf{Crossreferenced with 8 from formula in Q1 }\\
-\hline
-
-&\\
-		
-There is a guarantee that $(g \wedge k \wedge h)$	& \textbf{FALSE}\\
-
+ &\textbf{TRUE}\\
+ &\textbf{Crossreferemced with behavior 8}\\
 &\\
 
 \hline
 
 &\\
 		
-The program has the following response property: &\\
-$(b \wedge c \wedge h) \rightarrow \Diamond (b \wedge c \wedge h)$.  
- & \textbf{FALSE}\\
-
-
+There is a guarantee that $(g \wedge k \wedge h)$	
+ &\textbf{TRUE}\\
+ &\textbf{Crossreferemced with behavior 9}\\
+&\\
 
 \hline
 
+	
+The program has the following property: &\\
+$(b \wedge c \wedge h) \rightarrow \Diamond (b \wedge c \wedge h)$.   
+ &\textbf{FALSE}\\
+
+
+\hline
 
 		
 The program has the following precedence property: &\\
-$(b \wedge c \wedge h) \rightarrow ( (g \wedge h) ~\mathcal{U}~ b \wedge c \wedge h))$	
- & \textbf{FALSE}\\
+$(b \wedge c \wedge h) \rightarrow ( (g \wedge h) ~\mathcal{U}~ b \wedge c \wedge h))$
+	 &\textbf{FALSE}\\	
+&\\
 
 \hline
 
