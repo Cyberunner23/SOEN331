@@ -48,12 +48,17 @@ Pierre-Olivier Trottier (40059235) - \texttt{po.trottier@gmail.com} \tabularnewl
 \hspace*{5mm} nNodes : BSTTree $\rightarrow$ $\mathbb{N}_0$;\\
 \hspace*{5mm} nLeaves : BSTTree $\rightarrow$ $\mathbb{N}_0$;\\
 \noindent \textbf{Variables}:\\
-\hspace*{5mm} s: Set; x, y: Element;\\
+\hspace*{5mm} bst: Binary Search Tree; e: Element; n: Number\\
 \noindent \textbf{Axioms}:\\
-\hspace*{5mm} [A1] isempty(newset) = true;\\
-\hspace*{5mm} [A2] ismember(newset, x) = false;\\
-\hspace*{5mm} [A3] ismember(add(s, x), x) = true;\\
-\hspace*{5mm} [A4] add(add(s, x), y) = add(add(s, y), x);\\
+\hspace*{5mm} [A1] isEmpty(create) = true;\\
+\hspace*{5mm} [A2] nNodes(create) = 0;\\
+\hspace*{5mm} [A3] rootKey(create) = undefined;\\
+\hspace*{5mm} [A4] depth(create) = 0;\\
+\hspace*{5mm} [A5] left(create, n) = undefined\\
+\hspace*{5mm} [A6] depth(add(create, 1, e)) = 1\\
+\hspace*{5mm} [A7] nNodes(add(create, 1, e)) = 1\\
+\hspace*{5mm} [A8] add(add(create, 1, e), 1, e) = undefined\\
+\hspace*{5mm} [A9] depth(bst) <= nNodes(bst)\\
 
 \section*{Binary Search Tree (Aditional Questions)}
 
@@ -66,8 +71,11 @@ Pierre-Olivier Trottier (40059235) - \texttt{po.trottier@gmail.com} \tabularnewl
 \textbf{getAllKeys : BSTTree $\times$ Element $\rightarrow$ Array; \\ \textit{Where the array contains all the retreived keys.}}
 
 \item Define axioms that verify the clause "$isLeaf(BSTree, Number)$ takes a binary search tree and returns true if the node, whose key is specified by the number is a leaf, otherwise it returns false".\\
+\hspace*{5mm} \textbf{[A1] isLeaf(add(create, 1, e), 1) = true}\\
+\hspace*{5mm} \textbf{[A2] isLeaf(add(add(create, 1, e), 2, e), 1) = false}
 
 \item Define an axiom that verifies the clause "$rootKey(BSTree)$ takes a binary search tree and returns the key that is stored in the root of the tree".\\
+\hspace*{5mm} \textbf{[A] rootKey(add(create, 1, e)) = 1}\\
 
 \item Define axiom(s) that verify the functionality of the $left(BSTree, Number)$ method for the cases: "if the left subtree does not exists, the method returns an empty tree".\\
 
