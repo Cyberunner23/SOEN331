@@ -109,18 +109,51 @@ Pierre-Olivier Trottier (40059235) - \texttt{po.trottier@gmail.com} \tabularnewl
 \noindent \textbf{Variables}:\\
 \hspace*{5mm} tree: AVLTree; n: Number; elem: Element;\\
 \noindent \textbf{Axioms}:\\
+
 \hspace*{5mm}[A1] nNodes(tree) $<$= $2^{depth(tree)}$ -1;\\
 \hspace*{5mm}[A2] balanceFactor(create)=0;\\
-
-
+\hspace*{5mm} [A3]  balanceFactor(add(create(), n, elem)) = 1\\
+\hspace*{5mm} [A4]  balanceFactor(add(add(create(), n, elem), n, elem)) = 1 \textbf{or} -1\\
+\hspace*{5mm} [A5]  balanceFactor(tree, n, elem)) = 1 \textbf{or} -1 \textbf{or} 0\\
+\hspace*{5mm} [A6]  depth(add(add(add(create(), 1, el1), 2, el2), 3, el3)) = 2\\
+\hspace*{5mm} [A7] nNodes(add(add(add(create(), 1, el1), 2, el2), 3, el3)) = 3\\
+\hspace*{5mm} [A8] balanceFactor(add(add(add(create(), 1, el1), 2, el2), 3, el3)) = 0 \\
+\hspace*{5mm} [A9] rootKey(add(add(add(create(), 1, el1), 2, el2), 3, el3)) = 2\\
+\hspace*{5mm} [A10] nNodes(left(add(add(add(create(), 1, el1), 2, el2), 3, el3))) = 1 \textbf{and}  nNodes(right( add(add(add(create(), 1, el1), 2, el2), 3, el3))) = 1\\
 
 \section*{AVL Tree (Aditional Questions)}
 
 \begin{enumerate}
 
 \item How do you define a method that verifies if a given tree is AVLTree?\\
+\textbf{isAVLTree : BSTree $\rightarrow$ Boolean} \\ \\
+\textbf{Check if the balance factor is -1, 0 or 1. Then, visit each node in the tree and verify that the right child node has a higher value then its own value, as well as verify that the left child node has a smaller value than it own value. Providing that the node has children in the first place.}
+  
+
 
 \item Identify classes (categories) of all operations defined in your specification for AVLTree.\\
+\textbf{Primitive Constructors:} \\
+create\\
+\textbf{Non-Primitive Constructors:} \\
+join \\
+\textbf{Mutators:} \\
+add \\
+update \\
+delete \\
+\textbf{Observers:} \\
+balanceFactor \\
+containsKey \\
+contains\\
+left\\
+right\\
+parent\\
+isLeaf\\
+rootKey\\
+isEmpty\\
+depth\\
+nNodes\\
+nLeaves\\
+
 
 \end{enumerate}
 
