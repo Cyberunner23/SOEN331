@@ -109,9 +109,8 @@ Pierre-Olivier Trottier (40059235) - \texttt{po.trottier@gmail.com} \tabularnewl
 \noindent \textbf{Variables}:\\
 \hspace*{5mm} tree: AVLTree; n: Number; elem: Element;\\
 \noindent \textbf{Axioms}:\\
-
-\hspace*{5mm}[A1] nNodes(tree) $<$= $2^{depth(tree)}$ -1;\\
-\hspace*{5mm}[A2] balanceFactor(create)=0;\\
+\hspace*{5mm} [A1] nNodes(tree) $<$= $2^{depth(tree)}$ -1\\
+\hspace*{5mm} [A2] balanceFactor(create)=0\\
 \hspace*{5mm} [A3]  balanceFactor(add(create(), n, elem)) = 1\\
 \hspace*{5mm} [A4]  balanceFactor(add(add(create(), n, elem), n, elem)) = 1 \textbf{or} -1\\
 \hspace*{5mm} [A5]  balanceFactor(tree, n, elem)) = 1 \textbf{or} -1 \textbf{or} 0\\
