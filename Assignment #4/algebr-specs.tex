@@ -59,7 +59,12 @@ Pierre-Olivier Trottier (40059235) - \texttt{po.trottier@gmail.com} \tabularnewl
 \hspace*{5mm} [A7] nNodes(add(create, 1, e)) = 1\\
 \hspace*{5mm} [A8] add(add(create, 1, e), 1, e) = undefined\\
 \hspace*{5mm} [A9] depth(bst) $\leq$ nNodes(bst)\\
-
+\hspace*{5mm} [A10] depth(bst)  $>$ log(nNodes(bst))  if nNodes(bst)  $>$ 0  \\ 
+\hspace*{5mm} [A11] depth(add(add(add(create(), 1, el1), 2, el2), 3, el3)) = 3\\
+\hspace*{5mm} [A12] nNodes(add(add(add(create(), 1, el1), 2, el2), 3, el3)) = 3\\
+\hspace*{5mm} [A13] rootKey((add(add(add(create(), 1, el1), 2, el2), 3, el3)) = 1\\
+\hspace*{5mm} [A14] nNodes(right(add(add(add(create(), 1, el1), 2, el2), 3, el3)1)) = 2\\
+\hspace*{5mm} [A15] nNodes(left(add(add(add(create(), 1, el1), 2, el2), 3, el3)3)) = 0\\
 \section*{Binary Search Tree (Aditional Questions)}
 
 \begin{enumerate}
@@ -78,8 +83,11 @@ Pierre-Olivier Trottier (40059235) - \texttt{po.trottier@gmail.com} \tabularnewl
 \hspace*{5mm} \textbf{[A] rootKey(add(create, 1, e)) = 1}\\
 
 \item Define axiom(s) that verify the functionality of the $left(BSTree, Number)$ method for the cases: "if the left subtree does not exists, the method returns an empty tree".\\
+\hspace*{5mm} \textbf{[A1] isEmpty(left(add(add(create, 1, e), 2, e), 3)) = isEmpty(create)}
 
-\item Define an axiom that verifies a correct key is returned by $parent(BSTree, Number)$.\\
+\item Define an axiom that verifies a correct key is returned by $parent(BSTree, Number)$.\
+\hspace*{5mm} \textbf{[A1] parent(add(add(create, 1, e), 2, e), 2) = 1}
+\
 
 \end{enumerate}
 
@@ -101,8 +109,8 @@ Pierre-Olivier Trottier (40059235) - \texttt{po.trottier@gmail.com} \tabularnewl
 \noindent \textbf{Variables}:\\
 \hspace*{5mm} tree: AVLTree; n: Number; elem: Element;\\
 \noindent \textbf{Axioms}:\\
-\hspace*{5mm} [A1] \\
-\hspace*{5mm} [A2] \\
+\hspace*{5mm} [A1] nNodes(tree) $<$= $2^{depth(tree)}$ -1;\\
+\hspace*{5mm} [A2] balanceFactor(create)=0;\\
 \hspace*{5mm} [A3]  balanceFactor(add(create(), n, elem)) = 1\\
 \hspace*{5mm} [A4]  balanceFactor(add(add(create(), n, elem), n, elem)) = 1 \textbf{or} -1\\
 \hspace*{5mm} [A5]  balanceFactor(tree, n, elem)) = 1 \textbf{or} -1 \textbf{or} 0\\
@@ -111,6 +119,7 @@ Pierre-Olivier Trottier (40059235) - \texttt{po.trottier@gmail.com} \tabularnewl
 \hspace*{5mm} [A8] balanceFactor(add(add(add(create(), 1, el1), 2, el2), 3, el3)) = 0 \\
 \hspace*{5mm} [A9] rootKey(add(add(add(create(), 1, el1), 2, el2), 3, el3)) = 2\\
 \hspace*{5mm} [A10] nNodes(left(add(add(add(create(), 1, el1), 2, el2), 3, el3))) = 1 \textbf{and}  nNodes(right( add(add(add(create(), 1, el1), 2, el2), 3, el3))) = 1\\
+
 
 \section*{AVL Tree (Aditional Questions)}
 
